@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "blog-client",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A blog made with gatsby and strapi",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Christian Crespo <ikrs.dev@gmail.com>",
   "dependencies": {
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
@@ -34,7 +34,9 @@
     "typescript": "^3.7.5"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "strapi",
+    "blog"
   ],
   "license": "MIT",
   "scripts": {
@@ -49,9 +51,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/iKurisu/blog-client"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/iKurisu/blog-client/issues"
   }
 }
