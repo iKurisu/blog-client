@@ -40,5 +40,6 @@ module.exports = {
         contentTypes: [`article`],
       },
     },
+    `gatsby-plugin-styled-components`,
   ],
 }
