@@ -9,7 +9,8 @@ import React, { ReactNode } from "react"
 
 import Header from "./header"
 import { Main } from "./layout.styled"
-import "./layout.css"
+import GlobalStyles from "../styles/global"
+import "../styles/fonts.css"
 
 interface Props {
   children: ReactNode
@@ -17,6 +18,7 @@ interface Props {
 
 const Layout = ({ children }: Props) => (
   <>
+    <GlobalStyles />
     <Header />
     <Main>{children}</Main>
   </>

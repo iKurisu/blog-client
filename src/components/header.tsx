@@ -1,5 +1,10 @@
 import React from "react"
+import styled from "styled-components"
 
-const Header = () => <header></header>
+const StyledHeader = styled.header`
+  font-family: "HKGrotesk";
+`
+
+const Header = () => <StyledHeader>Test font</StyledHeader>
 
 export default Header
