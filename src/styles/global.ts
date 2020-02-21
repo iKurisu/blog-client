@@ -13,9 +13,15 @@ export default createGlobalStyle`
     word-wrap: break-word;
     font-kerning: normal;
     font-feature-settings: "kern", "liga", "clig", "calt";
+    background-color: #fbfbfb;
+  }
+
+  li {
+    list-style: none;
   }
 
   a {
+    color: inherit;
     text-decoration: none;
   }
 

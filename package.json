@@ -2,7 +2,7 @@
   "name": "blog-client",
   "private": true,
   "description": "A blog made with gatsby and strapi",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Christian Crespo <ikrs.dev@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
