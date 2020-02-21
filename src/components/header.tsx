@@ -8,6 +8,7 @@ import {
   NavItem,
   NavLink,
 } from "./header.styled"
+import MenuButton from "./menu-button"
 
 const Header = () => {
   const { pathname } = window.location
@@ -26,6 +27,7 @@ const Header = () => {
             <NavLink to="/about">About</NavLink>
           </NavItem>
         </Nav>
+        <MenuButton />
       </Wrapper>
     </StyledHeader>
   )

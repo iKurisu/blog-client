@@ -23,7 +23,11 @@ export const Logo = styled(Link)`
   letter-spacing: 0.015em;
 `
 
-export const Nav = styled.ul``
+export const Nav = styled.ul`
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`
 
 export const NavItem = styled.li`
   color: ${(props: NavItemProps) => (props.selected ? "#cfaa80" : "inherit")};
