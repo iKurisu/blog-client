@@ -7,6 +7,10 @@ interface NavItemProps {
 
 export const StyledHeader = styled.header`
   padding: 39px 0;
+
+  @media (max-width: 480px) {
+    padding: 28px 0;
+  }
 `
 
 export const Wrapper = styled.div`
@@ -14,6 +18,14 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 0 46px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 29px;
+  }
 `
 
 export const Logo = styled(Link)`
