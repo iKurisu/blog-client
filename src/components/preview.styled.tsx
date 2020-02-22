@@ -6,17 +6,47 @@ export const Wrapper = styled.article`
   flex: 1 30%;
   margin: 0 15px 80px;
 
-  &:nth-child(3n + 1) {
-    margin-left: 0;
+  @media (min-width: 769px) {
+    &:nth-child(3n + 1) {
+      margin-left: 0;
+    }
+
+    &:last-child:not(:nth-child(3n + 3)),
+    &:nth-last-child(2):nth-child(3n + 1) {
+      max-width: calc((100% - 60px) / 3);
+    }
+
+    &:nth-child(3n + 3) {
+      margin-right: 0;
+    }
   }
 
-  &:last-child:not(:nth-child(3n + 3)),
-  &:nth-last-child(2):nth-child(3n + 1) {
-    max-width: calc((100% - 60px) / 3);
+  @media (max-width: 768px) {
+    flex: 1 45%;
+    max-width: 50%;
+
+    &:nth-child(2n + 1) {
+      margin-left: 0;
+    }
+
+    &:nth-child(2n + 2) {
+      margin-right: 0;
+    }
+
+    &:last-child:nth-child(2n + 1) {
+      max-width: calc(50% - 15px);
+    }
   }
 
-  &:nth-child(3n + 3) {
-    margin-right: 0;
+  @media (max-width: 480px), (max-width: 823px) and (orientation: landscape) {
+    flex: 1 100%;
+    max-width: 100%;
+    margin: 0 0 64px;
+
+    &:last-child:not(:nth-child(3n + 3)),
+    &:nth-last-child(2):nth-child(3n + 1) {
+      max-width: 100%;
+    }
   }
 `
 
