@@ -1,15 +1,23 @@
 import React from "react"
-import Markdown from "react-markdown"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Preview from "../components/preview"
+import { ArticlesWrapper } from "./index.styled"
+import { FluidObject } from "gatsby-image"
 
 interface Props {
   data: {
     allStrapiArticle: {
       edges: Array<{
-        node: { title: string; image: { publicURL: string }; content: string }
+        node: {
+          id: string
+          title: string
+          image: { childImageSharp: { fluid: FluidObject } }
+          published_at: string
+          slug: string
+        }
       }>
     }
   }
@@ -18,10 +26,21 @@ interface Props {
 const IndexPage = ({ data }: Props) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <h1>{data.allStrapiArticle.edges[0].node.title}</h1>
-    <img src={data.allStrapiArticle.edges[0].node.image.publicURL} />
-    <Markdown source={data.allStrapiArticle.edges[0].node.content} />
+    <ArticlesWrapper>
+      {data.allStrapiArticle.edges.map(({ node }) => {
+        const { title, published_at: publishedAt, image, id, slug } = node
+
+        return (
+          <Preview
+            title={title}
+            image={image.childImageSharp.fluid}
+            publishedAt={publishedAt}
+            link={`/${slug}`}
+            key={id}
+          />
+        )
+      })}
+    </ArticlesWrapper>
   </Layout>
 )
 
@@ -32,11 +51,17 @@ export const query = graphql`
     allStrapiArticle {
       edges {
         node {
+          id
           title
           image {
-            publicURL
+            childImageSharp {
+              fluid(maxWidth: 2400, maxHeight: 1600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
-          content
+          published_at
+          slug
         }
       }
     }

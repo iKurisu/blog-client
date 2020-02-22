@@ -1,13 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Spectral:300&display=swap");
+
 @font-face {
-  font-family: "HKGrotesk";
-  src: url("../assets/fonts/HKGrotesk/HKGrotesk-Regular.otf");
+  font-family: "Jost";
+  src: url("../assets/fonts/Jost/Jost-200-Thin.otf");
+  font-style: normal;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("../assets/fonts/Jost/Jost-400-Book.otf");
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "HKGrotesk";
-  src: url("../assets/fonts/HKGrotesk/HKGrotesk-Medium.otf");
+  font-family: "Jost";
+  src: url("../assets/fonts/Jost/Jost-500-Medium.otf");
   font-style: normal;
   font-weight: 500;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("../assets/fonts/Jost/Jost-600-Semi.otf");
+  font-style: normal;
+  font-weight: 600;
 }
