@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Preview from "../components/preview"
 import Heading from "../components/heading"
+import Categories from "../components/categories"
 
 interface Props {
   data: {
@@ -28,6 +29,7 @@ const IndexPage = ({ data }: Props) => (
   <Layout>
     <SEO title="Home" />
     <Heading />
+    <Categories />
     <ArticlesWrapper>
       {data.allStrapiArticle.edges.map(({ node }) => {
         const { title, published_at: publishedAt, image, id, slug } = node
