@@ -1,11 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { FluidObject } from "gatsby-image"
 
+import { ArticlesWrapper } from "./index.styled"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Preview from "../components/preview"
-import { ArticlesWrapper } from "./index.styled"
-import { FluidObject } from "gatsby-image"
+import Heading from "../components/heading"
 
 interface Props {
   data: {
@@ -26,6 +27,7 @@ interface Props {
 const IndexPage = ({ data }: Props) => (
   <Layout>
     <SEO title="Home" />
+    <Heading />
     <ArticlesWrapper>
       {data.allStrapiArticle.edges.map(({ node }) => {
         const { title, published_at: publishedAt, image, id, slug } = node
