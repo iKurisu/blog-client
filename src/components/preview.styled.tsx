@@ -78,10 +78,7 @@ export const Description = styled.div`
   margin-bottom: 25px;
 
   p {
-    font-family: "Spectral";
     font-size: 15px;
-    font-weight: 300;
-    line-height: 1.3;
   }
 `
 
