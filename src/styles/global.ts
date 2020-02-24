@@ -32,4 +32,11 @@ export default createGlobalStyle`
     height: auto;
     display: inline-block;
   }
+
+  p {
+    font-family: "Spectral", serif;
+    font-weight: 300;
+    letter-spacing: 0.015em;
+    line-height: 1.3;
+  }
 `
