@@ -32,10 +32,17 @@ export default createGlobalStyle`
     height: auto;
     display: inline-block;
   }
+  
+  a, span, h3 {
+    font-family: "Jost", sans-serif;
+  }
 
-  p {
+  h1, p {
     font-family: "Spectral", serif;
     font-weight: 300;
+  }
+
+  p {
     letter-spacing: 0.015em;
     line-height: 1.3;
   }

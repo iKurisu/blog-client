@@ -29,7 +29,6 @@ export const Wrapper = styled.div`
 `
 
 export const Logo = styled(Link)`
-  font-family: "Jost";
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.015em;
@@ -54,7 +53,6 @@ export const NavItem = styled.li`
 `
 
 export const NavLink = styled(Link)`
-  font-family: "Jost";
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.025em;

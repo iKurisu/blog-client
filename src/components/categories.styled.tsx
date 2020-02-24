@@ -26,7 +26,6 @@ export const CategoriesList = styled.ul`
 
 export const Category = styled.span`
   color: #5a5a5a;
-  font-family: "Jost";
   font-size: 12px;
   font-weight: 300;
   letter-spacing: 0.25em;

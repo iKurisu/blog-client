@@ -7,8 +7,6 @@ export const HeadingWrapper = styled.div`
 
 export const Heading = styled.h1`
   font-size: 41.7px;
-  font-family: "Spectral";
-  font-weight: 300;
   text-align: center;
 
   &::after {
@@ -26,7 +24,6 @@ export const SubHeadingWrapper = styled.div`
   margin-bottom: 64px;
 
   span {
-    font-family: "Jost";
     font-size: 12px;
     font-weight: 300;
     letter-spacing: 0.45em;
@@ -46,7 +43,6 @@ export const ImgWrapper = styled.div`
 
 export const Alt = styled.span`
   color: #5a5a5a;
-  font-family: "Jost";
   font-size: 13px;
   font-weight: 200;
   letter-spacing: 0.075em;

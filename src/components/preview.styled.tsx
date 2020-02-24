@@ -56,7 +56,6 @@ export const Category = styled.div`
   padding: 1.25em 0 0.9em;
 
   span {
-    font-family: "Jost";
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.12em;
@@ -64,8 +63,7 @@ export const Category = styled.div`
   }
 `
 
-export const Title = styled.h1`
-  font-family: "Jost";
+export const Title = styled.h3`
   font-size: 25px;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -89,7 +87,6 @@ export const LinkWrapper = styled.div`
 export const StyledLink = styled(Link)`
   span {
     color: #b02626;
-    font-family: "Jost";
     font-size: 15px;
     font-weight: 200;
     letter-spacing: 0.06em;
@@ -101,7 +98,6 @@ export const PublishedDate = styled.div`
   float: right;
 
   span {
-    font-family: "Jost";
     font-size: 14px;
     font-weight: 200;
     letter-spacing: 0.05em;
