@@ -6,10 +6,10 @@ interface NavItemProps {
 }
 
 export const StyledHeader = styled.header`
-  padding: 39px 0;
+  padding: 40px 0;
 
   @media (max-width: 480px) {
-    padding: 28px 0;
+    padding: 32px 0;
   }
 `
 
@@ -29,7 +29,6 @@ export const Wrapper = styled.div`
 `
 
 export const Logo = styled(Link)`
-  font-family: "Jost";
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.015em;
@@ -54,7 +53,6 @@ export const NavItem = styled.li`
 `
 
 export const NavLink = styled(Link)`
-  font-family: "Jost";
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.025em;
