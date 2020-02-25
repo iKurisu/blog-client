@@ -6,10 +6,10 @@ interface NavItemProps {
 }
 
 export const StyledHeader = styled.header`
-  padding: 39px 0;
+  padding: 40px 0;
 
   @media (max-width: 480px) {
-    padding: 28px 0;
+    padding: 32px 0;
   }
 `
 
