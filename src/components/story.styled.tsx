@@ -1,81 +1,54 @@
 import styled from "styled-components"
 
-export const HeadingWrapper = styled.div`
+export const Reply = styled.div`
   max-width: 760px;
-  margin: 96px auto 0;
-
-  @media (max-width: 480px), (max-width: 823px) and (orientation: landscape) {
-    margin-top: 72px;
-  }
+  margin: auto;
 `
 
-export const Heading = styled.h1`
-  font-size: 41.7px;
-  text-align: center;
+export const ReplyHeading = styled.div`
+  margin-bottom: 24px;
 
-  &::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 1px;
-    background: #2a2a2a;
-    margin: 24px auto 32px;
+  h3 {
+    font-size: 19.3px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
   }
-`
-
-export const SubHeadingWrapper = styled.div`
-  text-align: center;
-  margin-bottom: 64px;
 
   span {
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-  }
-
-  span:first-child {
-    margin-right: 30px;
-  }
-
-  @media (max-width: 480px), (max-width: 823px) and (orientation: landscape) {
-    margin-bottom: 56px;
-
-    span {
-      font-size: 11px;
-      letter-spacing: 0.3em;
-    }
+    color: #999;
+    font-size: 14px;
+    font-weight: 200;
+    letter-spacing: 0.05em;
   }
 `
 
-export const ImgWrapper = styled.div`
-  width: 1150px;
-  margin: 0 auto 48px;
-  text-align: center;
-
-  @media (max-width: 1366px) {
-    max-width: 100%;
-  }
-
-  @media (max-width: 1024px), (max-width: 823px) and (orientation: landscape) {
-    margin-bottom: 40px;
-  }
-
-  @media (max-width: 480px) {
-    margin-bottom: 32px;
-  }
+export const Form = styled.form`
+  margin-bottom: 64px;
 `
 
-export const Alt = styled.span`
-  color: #5a5a5a;
-  font-size: 13px;
-  font-weight: 200;
-  letter-spacing: 0.075em;
-  display: inline-block;
-  margin-top: 16px;
+export const FormRow = styled.div`
+  margin-bottom: 16px;
 `
 
-export const Paragraph = styled.p`
-  max-width: 760px;
-  margin: 0 auto 40px;
+export const Input = styled.input`
+  font-size: 15px;
+  letter-spacing: 0.025em;
+  font-weight: 300;
+  width: calc(50% - 16px);
+  padding: 4px 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e5e5e5;
+
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
+`
+export const Textarea = styled.textarea`
+  font-size: 15px;
+  letter-spacing: 0.025em;
+  font-weight: 300;
+  width: 100%;
+  height: 31px;
+  border-bottom: 1px solid #e5e5e5;
 `

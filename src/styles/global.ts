@@ -33,11 +33,11 @@ export default createGlobalStyle`
     display: inline-block;
   }
   
-  a, span, h3 {
+  a, span, h3, input, textarea {
     font-family: "Jost", sans-serif;
   }
 
-  h1, p {
+  h1, p  {
     font-family: "Spectral", serif;
     font-weight: 300;
   }
@@ -45,5 +45,14 @@ export default createGlobalStyle`
   p {
     letter-spacing: 0.015em;
     line-height: 1.3;
+  }
+
+  input, textarea {
+    background: transparent;
+    border: none;
+  }
+
+  textarea {
+    resize: none;
   }
 `
