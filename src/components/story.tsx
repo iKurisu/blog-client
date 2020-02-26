@@ -1,9 +1,9 @@
 import React from "react"
-import Markdown from "react-markdown"
 import { graphql } from "gatsby"
-import Img, { FluidObject } from "gatsby-image"
+import { FluidObject } from "gatsby-image"
 
 import Layout from "./layout"
+import Article from "./story/article"
 import {
   Paragraph,
   ImgWrapper,
@@ -12,7 +12,6 @@ import {
   SubHeadingWrapper,
   Alt,
 } from "./story.styled"
-import { formatDate } from "../utils/date"
 
 interface Props {
   data: {
@@ -31,30 +30,10 @@ interface Props {
   }
 }
 
-const Story = ({ data }: Props): JSX.Element => {
-  const {
-    title,
-    image,
-    imageAlt,
-    content,
-    published_at: publishedAt,
-    category,
-  } = data.allStrapiArticle.edges[0].node
-
+const Story = ({ data }: Props) => {
   return (
     <Layout>
-      <HeadingWrapper>
-        <Heading>{title}</Heading>
-      </HeadingWrapper>
-      <SubHeadingWrapper>
-        <span>{formatDate(publishedAt)}</span>
-        <span>{category ?? "architecture"}</span>
-      </SubHeadingWrapper>
-      <ImgWrapper>
-        <Img fluid={image.childImageSharp.fluid} />
-        <Alt>{imageAlt ?? "Meaningless image"}</Alt>
-      </ImgWrapper>
-      <Markdown source={content} renderers={{ paragraph: Paragraph }} />
+      <Article data={data.allStrapiArticle.edges[0].node} />
     </Layout>
   )
 }
