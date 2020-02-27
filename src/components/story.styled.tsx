@@ -25,30 +25,62 @@ export const ReplyHeading = styled.div`
 
 export const Form = styled.form`
   margin-bottom: 64px;
+
+  input,
+  textarea {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.025em;
+  }
 `
 
 export const FormRow = styled.div`
-  margin-bottom: 16px;
+  margin-bottom: 28px;
 `
 
-export const Input = styled.input`
-  font-size: 15px;
-  letter-spacing: 0.025em;
-  font-weight: 300;
+export const Line = styled.div`
+  width: 100%;
+  height: 1px;
+  background: #999;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  transform: scaleX(0);
+  transform-origin: 0;
+  transition: transform 0.5s;
+`
+
+export const InputWrapper = styled.div`
+  position: relative;
+  display: inline-block;
   width: calc(50% - 16px);
   padding: 4px 0;
-  margin-bottom: 12px;
   border-bottom: 1px solid #e5e5e5;
 
   &:not(:last-child) {
     margin-right: 32px;
   }
+
+  input:not(:last-child) {
+    margin-right: 32px;
+  }
+
+  input:focus ~ ${Line} {
+    transform: scaleX(1);
+  }
 `
-export const Textarea = styled.textarea`
-  font-size: 15px;
-  letter-spacing: 0.025em;
-  font-weight: 300;
+
+export const TextareaWrapper = styled.div`
+  position: relative;
   width: 100%;
-  height: 31px;
   border-bottom: 1px solid #e5e5e5;
+
+  textarea {
+    height: 27px;
+  }
+
+  textarea:focus ~ ${Line} {
+    transform: scaleX(1);
+  }
 `

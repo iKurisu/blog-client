@@ -9,8 +9,9 @@ import {
   ReplyHeading,
   Form,
   FormRow,
-  Input,
-  Textarea,
+  Line,
+  InputWrapper,
+  TextareaWrapper,
 } from "./story.styled"
 
 interface Props {
@@ -41,11 +42,20 @@ const Story = ({ data }: Props) => {
         </ReplyHeading>
         <Form>
           <FormRow>
-            <Input name="Name" placeholder="Name" />
-            <Input name="Email" placeholder="Email" />
+            <InputWrapper>
+              <input name="Name" placeholder="Name" />
+              <Line />
+            </InputWrapper>
+            <InputWrapper>
+              <input name="Email" placeholder="Email" />
+              <Line />
+            </InputWrapper>
           </FormRow>
           <FormRow>
-            <Textarea name="Comment" placeholder="Comment" />
+            <TextareaWrapper>
+              <textarea name="Comment" placeholder="Comment" />
+              <Line />
+            </TextareaWrapper>
           </FormRow>
         </Form>
       </Reply>
