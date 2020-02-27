@@ -51,6 +51,16 @@ export const Line = styled.div`
   transition: transform 0.5s;
 `
 
+interface ErrorLineProps {
+  show: boolean
+}
+
+export const ErrorLine = styled(Line)`
+  background: #b02626;
+  z-index: 10;
+  transform: scaleX(${(props: ErrorLineProps) => (props.show ? 1 : 0)});
+`
+
 export const InputWrapper = styled.div`
   position: relative;
   display: inline-block;
@@ -66,7 +76,7 @@ export const InputWrapper = styled.div`
     margin-right: 32px;
   }
 
-  input:focus ~ ${Line} {
+  input:focus + ${Line} {
     transform: scaleX(1);
   }
 `
@@ -80,7 +90,7 @@ export const TextareaWrapper = styled.div`
     height: 27px;
   }
 
-  textarea:focus ~ ${Line} {
+  textarea:focus + ${Line} {
     transform: scaleX(1);
   }
 `
