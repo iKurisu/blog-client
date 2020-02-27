@@ -4,15 +4,7 @@ import { FluidObject } from "gatsby-image"
 
 import Layout from "./layout"
 import Article from "./story/article"
-import {
-  Reply,
-  ReplyHeading,
-  Form,
-  FormRow,
-  Line,
-  InputWrapper,
-  TextareaWrapper,
-} from "./story.styled"
+import Reply from "./story/reply"
 
 interface Props {
   data: {
@@ -35,30 +27,7 @@ const Story = ({ data }: Props) => {
   return (
     <Layout>
       <Article data={data.allStrapiArticle.edges[0].node} />
-      <Reply>
-        <ReplyHeading>
-          <h3>Leave a Reply</h3>
-          <span>Your email address will not be published</span>
-        </ReplyHeading>
-        <Form>
-          <FormRow>
-            <InputWrapper>
-              <input name="Name" placeholder="Name" />
-              <Line />
-            </InputWrapper>
-            <InputWrapper>
-              <input name="Email" placeholder="Email" />
-              <Line />
-            </InputWrapper>
-          </FormRow>
-          <FormRow>
-            <TextareaWrapper>
-              <textarea name="Comment" placeholder="Comment" />
-              <Line />
-            </TextareaWrapper>
-          </FormRow>
-        </Form>
-      </Reply>
+      <Reply />
     </Layout>
   )
 }

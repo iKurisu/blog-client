@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Reply = styled.div`
+export const Wrapper = styled.div`
   max-width: 760px;
   margin: auto;
 `
