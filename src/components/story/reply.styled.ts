@@ -85,6 +85,7 @@ export const TextareaWrapper = styled.div`
   position: relative;
   width: 100%;
   border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 40px;
 
   textarea {
     height: 27px;
@@ -92,5 +93,17 @@ export const TextareaWrapper = styled.div`
 
   textarea:focus + ${Line} {
     transform: scaleX(1);
+  }
+`
+
+export const Button = styled.button`
+  cursor: pointer;
+  background: #212121;
+  padding: 16px 32px;
+
+  span {
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 0.5em;
   }
 `

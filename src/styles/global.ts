@@ -33,7 +33,7 @@ export default createGlobalStyle`
     display: inline-block;
   }
   
-  a, span, h3, input, textarea {
+  a, span, h3, input, textarea, button {
     font-family: "Jost", sans-serif;
   }
 
@@ -47,7 +47,7 @@ export default createGlobalStyle`
     line-height: 1.3;
   }
 
-  input, textarea {
+  input, textarea, button {
     background: transparent;
     border: none;
   }

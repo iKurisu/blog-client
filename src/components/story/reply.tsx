@@ -9,6 +9,7 @@ import {
   Line,
   ErrorLine,
   TextareaWrapper,
+  Button,
 } from "./reply.styled"
 
 const Reply = () => {
@@ -65,7 +66,9 @@ const Reply = () => {
           </TextareaWrapper>
         </FormRow>
         <FormRow>
-          <button type="submit">Submit</button>
+          <Button type="submit">
+            <span>POST COMMENT</span>
+          </Button>
         </FormRow>
       </Form>
     </Wrapper>
