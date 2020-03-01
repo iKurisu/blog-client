@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from "react"
+import React, { SyntheticEvent, useState, FormEvent, useRef } from "react"
 
 import {
   Wrapper,
@@ -13,6 +13,10 @@ import {
 } from "./reply.styled"
 
 const Reply = () => {
+  const nameRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
+  const commentRef = useRef<HTMLTextAreaElement>(null)
+
   const [isValidName, setIsValidName] = useState<boolean>()
   const [isValidEmail, setIsValidEmail] = useState<boolean>()
   const [isValidComment, setIsValidComment] = useState<boolean>()
@@ -35,21 +39,69 @@ const Reply = () => {
     setIsValidComment(value.length > 0)
   }
 
+  const resetForm = (): void => {
+    nameRef.current!.value = ""
+    emailRef.current!.value = ""
+    commentRef.current!.value = ""
+  }
+
+  const submitComment = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (!isValidName || !isValidEmail || !isValidComment) return
+
+    const name = nameRef.current?.value
+    const email = emailRef.current?.value
+    const content = commentRef.current?.value
+
+    const response = await fetch("http://localhost:1337/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        author: { name, email },
+        content,
+        slug: "",
+      }),
+    })
+
+    const jsonResponse = await response.json()
+
+    if (jsonResponse.constraint === "custom_users_email_unique") {
+      setIsValidEmail(false)
+    } else if (jsonResponse.constraint === "custom_users_name_unique") {
+      setIsValidName(false)
+    } else {
+      resetForm()
+    }
+  }
+
   return (
     <Wrapper>
       <ReplyHeading>
         <h3>Leave a Reply</h3>
         <span>Your email address will not be published</span>
       </ReplyHeading>
-      <Form>
+      <Form onSubmit={submitComment}>
         <FormRow>
           <InputWrapper>
-            <input name="name" placeholder="Name" onBlur={validateName} />
+            <input
+              name="name"
+              placeholder="Name"
+              onBlur={validateName}
+              ref={nameRef}
+            />
             <Line />
             <ErrorLine show={isValidName === false} />
           </InputWrapper>
           <InputWrapper>
-            <input name="email" placeholder="Email" onBlur={validateEmail} />
+            <input
+              name="email"
+              placeholder="Email"
+              onBlur={validateEmail}
+              ref={emailRef}
+            />
             <Line />
             <ErrorLine show={isValidEmail === false} />
           </InputWrapper>
@@ -60,6 +112,7 @@ const Reply = () => {
               name="comment"
               placeholder="Comment"
               onBlur={validateComment}
+              ref={commentRef}
             />
             <Line />
             <ErrorLine show={isValidComment === false} />
