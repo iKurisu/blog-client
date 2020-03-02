@@ -4,6 +4,7 @@ import { FluidObject } from "gatsby-image"
 
 import Layout from "./layout"
 import Article from "./story/article"
+import Comments from "./story/comments"
 import Reply from "./story/reply"
 
 interface Props {
@@ -30,6 +31,7 @@ const Story = ({ data }: Props) => {
   return (
     <Layout>
       <Article data={node} />
+      <Comments slug={node.slug} />
       <Reply slug={node.slug} />
     </Layout>
   )
