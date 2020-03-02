@@ -79,6 +79,18 @@ export const InputWrapper = styled.div`
   input:focus + ${Line} {
     transform: scaleX(1);
   }
+
+  @media (max-width: 480px) {
+    width: 100%;
+
+    input {
+      margin: 0;
+    }
+
+    &:first-child {
+      margin-bottom: 28px;
+    }
+  }
 `
 
 export const TextareaWrapper = styled.div`
