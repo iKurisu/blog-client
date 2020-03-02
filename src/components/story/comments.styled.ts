@@ -17,7 +17,7 @@ export const CommentsHeading = styled.div`
   }
 `
 
-export const Comment = styled.div`
+export const StyledComment = styled.div`
   margin-bottom: 48px;
 `
 

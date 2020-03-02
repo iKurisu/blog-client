@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import { FluidObject } from "gatsby-image"
 
@@ -6,6 +6,7 @@ import Layout from "./layout"
 import Article from "./story/article"
 import Comments from "./story/comments"
 import Reply from "./story/reply"
+import { Comment } from "./story/types"
 
 interface Props {
   data: {
@@ -27,12 +28,26 @@ interface Props {
 
 const Story = ({ data }: Props) => {
   const { node } = data.allStrapiArticle.edges[0]
+  const { slug } = node
+
+  const [comments, setComments] = useState<Comment[]>([])
+
+  const fetchComments = async () => {
+    const response = await fetch(`http://localhost:1337/comments?slug=${slug}`)
+    const jsonResponse = await response.json()
+
+    setComments(jsonResponse)
+  }
+
+  useEffect(() => {
+    fetchComments().catch(console.error)
+  }, [])
 
   return (
     <Layout>
       <Article data={node} />
-      <Comments slug={node.slug} />
-      <Reply slug={node.slug} />
+      <Comments comments={comments} />
+      <Reply slug={slug} fetchComments={fetchComments} />
     </Layout>
   )
 }

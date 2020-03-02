@@ -14,9 +14,10 @@ import {
 
 interface Props {
   slug: string
+  fetchComments: () => Promise<void>
 }
 
-const Reply = ({ slug }: Props) => {
+const Reply = ({ slug, fetchComments }: Props) => {
   const nameRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
   const commentRef = useRef<HTMLTextAreaElement>(null)
@@ -77,6 +78,7 @@ const Reply = ({ slug }: Props) => {
     } else if (jsonResponse.constraint === "custom_users_name_unique") {
       setIsValidName(false)
     } else {
+      fetchComments()
       resetForm()
     }
   }
