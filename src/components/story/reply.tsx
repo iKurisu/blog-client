@@ -12,7 +12,11 @@ import {
   Button,
 } from "./reply.styled"
 
-const Reply = () => {
+interface Props {
+  slug: string
+}
+
+const Reply = ({ slug }: Props) => {
   const nameRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
   const commentRef = useRef<HTMLTextAreaElement>(null)
@@ -62,7 +66,7 @@ const Reply = () => {
       body: JSON.stringify({
         author: { name, email },
         content,
-        slug: "",
+        slug,
       }),
     })
 

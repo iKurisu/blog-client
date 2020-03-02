@@ -17,6 +17,7 @@ interface Props {
           published_at: string
           category?: string
           imageAlt?: string
+          slug: string
         }
       }>
     }
@@ -24,10 +25,12 @@ interface Props {
 }
 
 const Story = ({ data }: Props) => {
+  const { node } = data.allStrapiArticle.edges[0]
+
   return (
     <Layout>
-      <Article data={data.allStrapiArticle.edges[0].node} />
-      <Reply />
+      <Article data={node} />
+      <Reply slug={node.slug} />
     </Layout>
   )
 }
@@ -47,6 +50,7 @@ export const query = graphql`
           }
           content
           published_at
+          slug
         }
       }
     }
