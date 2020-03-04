@@ -30,6 +30,7 @@ const Story = ({ data }: Props) => {
   const { node } = data.allStrapiArticle.edges[0]
   const { slug } = node
 
+  const [replyingTo, setReplyingTo] = useState<Comment | null>(null)
   const [comments, setComments] = useState<Comment[]>([])
 
   const fetchComments = async () => {
@@ -46,8 +47,12 @@ const Story = ({ data }: Props) => {
   return (
     <Layout>
       <Article data={node} />
-      <Comments comments={comments} />
-      <Reply slug={slug} fetchComments={fetchComments} />
+      <Comments comments={comments} setReplyingTo={setReplyingTo} />
+      <Reply
+        slug={slug}
+        replyingTo={replyingTo}
+        fetchComments={fetchComments}
+      />
     </Layout>
   )
 }

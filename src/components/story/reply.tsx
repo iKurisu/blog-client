@@ -11,13 +11,15 @@ import {
   TextareaWrapper,
   Button,
 } from "./reply.styled"
+import { Comment } from "./types"
 
 interface Props {
   slug: string
+  replyingTo: Comment | null
   fetchComments: () => Promise<void>
 }
 
-const Reply = ({ slug, fetchComments }: Props) => {
+const Reply = ({ slug, replyingTo, fetchComments }: Props) => {
   const nameRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
   const commentRef = useRef<HTMLTextAreaElement>(null)
@@ -64,11 +66,7 @@ const Reply = ({ slug, fetchComments }: Props) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        author: { name, email },
-        content,
-        slug,
-      }),
+      body: JSON.stringify({ author: { name, email }, content, slug }),
     })
 
     const jsonResponse = await response.json()
@@ -78,6 +76,20 @@ const Reply = ({ slug, fetchComments }: Props) => {
     } else if (jsonResponse.constraint === "custom_users_name_unique") {
       setIsValidName(false)
     } else {
+      if (replyingTo) {
+        await fetch(`http://localhost:1337/comments/${replyingTo}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            replies: replyingTo.replies
+              .map(reply => reply.id)
+              .concat(jsonResponse.id),
+          }),
+        })
+      }
+
       fetchComments()
       resetForm()
     }

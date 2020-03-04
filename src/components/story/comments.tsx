@@ -13,6 +13,7 @@ import { Comment } from "./types"
 
 interface Props {
   comments: Comment[]
+  setReplyingTo: React.Dispatch<React.SetStateAction<Comment | null>>
 }
 
 const formatDate = (date: string): string => {
@@ -23,7 +24,7 @@ const formatDate = (date: string): string => {
   return `${month} ${day}, ${year} at ${hours}:${minutes}`
 }
 
-const Comments = ({ comments }: Props) => {
+const Comments = ({ comments, setReplyingTo }: Props) => {
   return (
     <Wrapper>
       <CommentsHeading>
@@ -34,7 +35,7 @@ const Comments = ({ comments }: Props) => {
           <Author>{comment.author.name}</Author>
           <PublishDate>{formatDate(comment.created_at)}</PublishDate>
           <Content>{comment.content}</Content>
-          <Reply>reply</Reply>
+          <Reply onClick={() => setReplyingTo(comment)}>reply</Reply>
         </StyledComment>
       ))}
     </Wrapper>
