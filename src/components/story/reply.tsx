@@ -77,7 +77,7 @@ const Reply = ({ slug, replyingTo, fetchComments }: Props) => {
       setIsValidName(false)
     } else {
       if (replyingTo) {
-        await fetch(`http://localhost:1337/comments/${replyingTo}`, {
+        await fetch(`http://localhost:1337/comments/${replyingTo.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
