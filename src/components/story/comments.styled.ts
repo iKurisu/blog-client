@@ -17,8 +17,18 @@ export const CommentsHeading = styled.div`
   }
 `
 
-export const StyledComment = styled.div`
+export const CommentWrapper = styled.div`
   margin-bottom: 48px;
+`
+
+export const ReplyWrapper = styled.div`
+  margin-left: 12px;
+  border-left: 1px solid #e5e5e5;
+  padding-left: 20px;
+`
+
+export const StyledComment = styled.div`
+  margin-bottom: 28px;
 `
 
 export const Author = styled.h3`
@@ -41,7 +51,7 @@ export const Content = styled.p`
   margin-bottom: 12px;
 `
 
-export const Reply = styled.span`
+export const ReplyButton = styled.span`
   color: #b02626;
   font-size: 15px;
   font-weight: 200;
