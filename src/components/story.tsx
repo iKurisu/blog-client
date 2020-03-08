@@ -38,7 +38,7 @@ const Story = ({ data }: Props) => {
       `http://localhost:1337/comments?slug=${slug}&parent_null=true`
     )
     const jsonResponse = await response.json()
-    console.log(jsonResponse)
+
     setComments(jsonResponse)
   }
 
