@@ -1,4 +1,11 @@
-import React, { SyntheticEvent, useState, FormEvent, useRef } from "react"
+import React, {
+  SyntheticEvent,
+  useState,
+  FormEvent,
+  useRef,
+  SetStateAction,
+  Dispatch,
+} from "react"
 
 import {
   Wrapper,
@@ -16,10 +23,11 @@ import { Comment } from "./types"
 interface Props {
   slug: string
   replyingTo: Comment | null
+  setReplyingTo: Dispatch<SetStateAction<Comment | null>>
   fetchComments: () => Promise<void>
 }
 
-const Reply = ({ slug, replyingTo, fetchComments }: Props) => {
+const Reply = ({ slug, replyingTo, setReplyingTo, fetchComments }: Props) => {
   const nameRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
   const commentRef = useRef<HTMLTextAreaElement>(null)
@@ -88,6 +96,8 @@ const Reply = ({ slug, replyingTo, fetchComments }: Props) => {
               .concat(jsonResponse.id),
           }),
         })
+
+        setReplyingTo(null)
       }
 
       fetchComments()
@@ -98,7 +108,12 @@ const Reply = ({ slug, replyingTo, fetchComments }: Props) => {
   return (
     <Wrapper>
       <ReplyHeading>
-        <h3>Leave a Reply</h3>
+        <h3>
+          Leave a Reply{" "}
+          {replyingTo && (
+            <span onClick={() => setReplyingTo(null)}>Cancel replay</span>
+          )}
+        </h3>
         <span>Your email address will not be published</span>
       </ReplyHeading>
       <Form onSubmit={submitComment}>

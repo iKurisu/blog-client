@@ -53,6 +53,7 @@ const Story = ({ data }: Props) => {
       <Reply
         slug={slug}
         replyingTo={replyingTo}
+        setReplyingTo={setReplyingTo}
         fetchComments={fetchComments}
       />
     </Layout>
