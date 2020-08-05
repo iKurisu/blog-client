@@ -21,6 +21,13 @@ export const ReplyHeading = styled.div`
     font-weight: 200;
     letter-spacing: 0.05em;
   }
+
+  h3 span {
+    color: #b02626;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+  }
 `
 
 export const Form = styled.form`
