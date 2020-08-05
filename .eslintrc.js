@@ -29,5 +29,11 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 }
