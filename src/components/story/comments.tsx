@@ -3,6 +3,7 @@ import React from "react"
 import {
   Wrapper,
   CommentsHeading,
+  CommentsPlaceholder,
   CommentWrapper,
   ReplyWrapper,
   StyledComment,
@@ -51,7 +52,11 @@ const Comments = ({ comments, setReplyingTo }: Props) => {
       <CommentsHeading>
         <h3>Comments</h3>
       </CommentsHeading>
-      {renderComments(comments)}
+      {comments.length > 0 ? (
+        renderComments(comments)
+      ) : (
+        <CommentsPlaceholder>There are no comments yet.</CommentsPlaceholder>
+      )}
     </Wrapper>
   )
 }

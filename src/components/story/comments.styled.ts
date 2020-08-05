@@ -17,6 +17,13 @@ export const CommentsHeading = styled.div`
   }
 `
 
+export const CommentsPlaceholder = styled.span`
+  color: #555;
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: 0.05em;
+`
+
 export const CommentWrapper = styled.div`
   margin-bottom: 48px;
 `
