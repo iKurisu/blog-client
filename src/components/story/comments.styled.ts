@@ -44,7 +44,7 @@ export const PublishDate = styled.span`
   font-size: 13px;
   font-weight: 200;
   letter-spacing: 0.05em;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 `
 
 export const Content = styled.p`
@@ -56,4 +56,5 @@ export const ReplyButton = styled.span`
   font-size: 15px;
   font-weight: 200;
   letter-spacing: 0.06em;
+  cursor: pointer;
 `
