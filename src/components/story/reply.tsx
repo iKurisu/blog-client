@@ -6,6 +6,7 @@ import React, {
   SetStateAction,
   Dispatch,
 } from "react"
+import TextareaAutosize from "react-textarea-autosize"
 
 import {
   Wrapper,
@@ -141,7 +142,7 @@ const Reply = ({ slug, replyingTo, setReplyingTo, fetchComments }: Props) => {
         </FormRow>
         <FormRow>
           <TextareaWrapper>
-            <textarea
+            <TextareaAutosize
               name="comment"
               placeholder="Comment"
               onBlur={validateComment}
