@@ -1,4 +1,5 @@
 import React from "react"
+import Markdown from "react-markdown"
 
 import {
   Wrapper,
@@ -31,13 +32,15 @@ const formatDate = (date: string): string => {
 const Comments = ({ comments, setReplyingTo }: Props) => {
   const renderComments = (comments: Comment[], isReply = false) => {
     const Wrapper = isReply ? ReplyWrapper : CommentWrapper
-
+    console.log(comments)
     return comments.map(comment => (
       <Wrapper key={comment.id}>
         <StyledComment>
           <Author>{comment.author.name}</Author>
           <PublishDate>{formatDate(comment.created_at)}</PublishDate>
-          <Content>{comment.content}</Content>
+          <Content>
+            <Markdown source={comment.content} rawSourcePos={true} />
+          </Content>
           <ReplyButton onClick={() => setReplyingTo(comment)}>
             reply
           </ReplyButton>

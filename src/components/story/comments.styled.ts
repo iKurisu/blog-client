@@ -56,6 +56,10 @@ export const PublishDate = styled.span`
 
 export const Content = styled.p`
   margin-bottom: 12px;
+
+  p:not(:last-child) {
+    margin-bottom: 6px;
+  }
 `
 
 export const ReplyButton = styled.span`
