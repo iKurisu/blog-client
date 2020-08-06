@@ -1,18 +1,12 @@
-import React from "react"
-import Markdown from "react-markdown"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
-import Img, { FluidObject } from "gatsby-image"
+import { FluidObject } from "gatsby-image"
 
 import Layout from "./layout"
-import {
-  Paragraph,
-  ImgWrapper,
-  Heading,
-  HeadingWrapper,
-  SubHeadingWrapper,
-  Alt,
-} from "./story.styled"
-import { formatDate } from "../utils/date"
+import Article from "./story/article"
+import Comments from "./story/comments"
+import Reply from "./story/reply"
+import { Comment } from "./story/types"
 
 interface Props {
   data: {
@@ -25,36 +19,43 @@ interface Props {
           published_at: string
           category?: string
           imageAlt?: string
+          slug: string
         }
       }>
     }
   }
 }
 
-const Story = ({ data }: Props): JSX.Element => {
-  const {
-    title,
-    image,
-    imageAlt,
-    content,
-    published_at: publishedAt,
-    category,
-  } = data.allStrapiArticle.edges[0].node
+const Story = ({ data }: Props) => {
+  const { node } = data.allStrapiArticle.edges[0]
+  const { slug } = node
+
+  const [replyingTo, setReplyingTo] = useState<Comment | null>(null)
+  const [comments, setComments] = useState<Comment[]>([])
+
+  const fetchComments = async () => {
+    const response = await fetch(
+      `http://localhost:1337/comments?slug=${slug}&parent_null=true`
+    )
+    const jsonResponse = await response.json()
+
+    setComments(jsonResponse)
+  }
+
+  useEffect(() => {
+    fetchComments().catch(console.error)
+  }, [])
 
   return (
     <Layout>
-      <HeadingWrapper>
-        <Heading>{title}</Heading>
-      </HeadingWrapper>
-      <SubHeadingWrapper>
-        <span>{formatDate(publishedAt)}</span>
-        <span>{category ?? "architecture"}</span>
-      </SubHeadingWrapper>
-      <ImgWrapper>
-        <Img fluid={image.childImageSharp.fluid} />
-        <Alt>{imageAlt ?? "Meaningless image"}</Alt>
-      </ImgWrapper>
-      <Markdown source={content} renderers={{ paragraph: Paragraph }} />
+      <Article data={node} />
+      <Comments comments={comments} setReplyingTo={setReplyingTo} />
+      <Reply
+        slug={slug}
+        replyingTo={replyingTo}
+        setReplyingTo={setReplyingTo}
+        fetchComments={fetchComments}
+      />
     </Layout>
   )
 }
@@ -74,6 +75,7 @@ export const query = graphql`
           }
           content
           published_at
+          slug
         }
       }
     }

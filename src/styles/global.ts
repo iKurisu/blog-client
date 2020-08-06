@@ -5,6 +5,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
   }
   
   body {
@@ -33,11 +34,11 @@ export default createGlobalStyle`
     display: inline-block;
   }
   
-  a, span, h3 {
+  a, span, h3, input, textarea, button {
     font-family: "Jost", sans-serif;
   }
 
-  h1, p {
+  h1, p  {
     font-family: "Spectral", serif;
     font-weight: 300;
   }
@@ -46,4 +47,17 @@ export default createGlobalStyle`
     letter-spacing: 0.015em;
     line-height: 1.3;
   }
+
+  input, textarea, button {
+    background: transparent;
+    border: none;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  /* input:focus, textarea:focus {
+    outline: none;
+  } */
 `

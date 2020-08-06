@@ -1,5 +1,9 @@
 import styled from "styled-components"
 
+export const StyledArticle = styled.article`
+  margin-bottom: 80px;
+`
+
 export const HeadingWrapper = styled.div`
   max-width: 760px;
   margin: 96px auto 0;
@@ -23,7 +27,7 @@ export const Heading = styled.h1`
   }
 `
 
-export const SubHeadingWrapper = styled.div`
+export const SubHeading = styled.div`
   text-align: center;
   margin-bottom: 64px;
 
