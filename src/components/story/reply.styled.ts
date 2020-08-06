@@ -107,7 +107,7 @@ export const TextareaWrapper = styled.div`
   margin-bottom: 40px;
 
   textarea {
-    height: 27px;
+    margin-bottom: 5px;
   }
 
   textarea:focus + ${Line} {
