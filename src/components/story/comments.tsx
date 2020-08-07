@@ -21,7 +21,6 @@ interface Props {
 }
 
 const formatDate = (date: string): string => {
-  console.log(date)
   const d = new Date(date)
   const [, day, month, year, time] = d.toUTCString().split(" ")
   const [hours, minutes] = time.split(":")
@@ -32,7 +31,7 @@ const formatDate = (date: string): string => {
 const Comments = ({ comments, setReplyingTo }: Props) => {
   const renderComments = (comments: Comment[], isReply = false) => {
     const Wrapper = isReply ? ReplyWrapper : CommentWrapper
-    console.log(comments)
+
     return comments.map(comment => (
       <Wrapper key={comment.id}>
         <StyledComment>

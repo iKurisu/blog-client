@@ -54,7 +54,7 @@ export const PublishDate = styled.span`
   margin-bottom: 12px;
 `
 
-export const Content = styled.p`
+export const Content = styled.div`
   margin-bottom: 12px;
 
   p:not(:last-child) {
