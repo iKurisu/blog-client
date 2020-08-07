@@ -7,6 +7,7 @@ import Article from "./story/article"
 import Comments from "./story/comments"
 import Reply from "./story/reply"
 import { Comment } from "./story/types"
+import { Helmet } from "react-helmet"
 
 interface Props {
   data: {
@@ -51,6 +52,9 @@ const Story = ({ data, location }: Props) => {
 
   return (
     <Layout location={location.pathname}>
+      <Helmet>
+        <title>{node.title}</title>
+      </Helmet>
       <Article data={node} />
       <Comments comments={comments} setReplyingTo={setReplyingTo} />
       <Reply
