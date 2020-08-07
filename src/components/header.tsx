@@ -10,17 +10,20 @@ import {
 } from "./header.styled"
 import MenuButton from "./menu-button"
 
-const Header = () => {
-  const { pathname } = window.location
+interface Props {
+  location: string
+}
 
-  const at = (route: string) => pathname === route
+const Header = ({ location }: Props) => {
+  console.log(location)
+  const at = (route: string) => location === route
 
   return (
     <StyledHeader>
       <Wrapper>
         <Logo to="/">Christian C.</Logo>
         <Nav>
-          <NavItem selected={at("/")}>
+          <NavItem selected={!at("/about")}>
             <NavLink to="/">Blog</NavLink>
           </NavItem>
           <NavItem selected={at("/about")}>

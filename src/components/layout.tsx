@@ -14,12 +14,13 @@ import "../styles/fonts.css"
 
 interface Props {
   children: ReactNode
+  location: string
 }
 
-const Layout = ({ children }: Props) => (
+const Layout = ({ children, location }: Props) => (
   <>
     <GlobalStyles />
-    <Header />
+    <Header location={location} />
     <Main>{children}</Main>
   </>
 )

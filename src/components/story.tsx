@@ -24,9 +24,12 @@ interface Props {
       }>
     }
   }
+  location: {
+    pathname: string
+  }
 }
 
-const Story = ({ data }: Props) => {
+const Story = ({ data, location }: Props) => {
   const { node } = data.allStrapiArticle.edges[0]
   const { slug } = node
 
@@ -47,7 +50,7 @@ const Story = ({ data }: Props) => {
   }, [])
 
   return (
-    <Layout>
+    <Layout location={location.pathname}>
       <Article data={node} />
       <Comments comments={comments} setReplyingTo={setReplyingTo} />
       <Reply

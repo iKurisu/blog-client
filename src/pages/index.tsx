@@ -23,10 +23,13 @@ interface Props {
       }>
     }
   }
+  location: {
+    pathname: string
+  }
 }
 
-const IndexPage = ({ data }: Props) => (
-  <Layout>
+const IndexPage = ({ data, location }: Props) => (
+  <Layout location={location.pathname}>
     <SEO title="Home" />
     <Heading />
     <Categories />
