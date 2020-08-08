@@ -15,7 +15,6 @@ interface Props {
 }
 
 const Header = ({ location }: Props) => {
-  console.log(location)
   const at = (route: string) => location === route
 
   return (
