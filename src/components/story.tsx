@@ -21,6 +21,7 @@ interface Props {
           category?: string
           imageAlt?: string
           slug: string
+          description: string
         }
       }>
     }
@@ -32,7 +33,7 @@ interface Props {
 
 const Story = ({ data, location }: Props) => {
   const { node } = data.allStrapiArticle.edges[0]
-  const { slug } = node
+  const { slug, title, description } = node
 
   const [replyingTo, setReplyingTo] = useState<Comment | null>(null)
   const [comments, setComments] = useState<Comment[]>([])
@@ -53,7 +54,8 @@ const Story = ({ data, location }: Props) => {
   return (
     <Layout location={location.pathname}>
       <Helmet>
-        <title>{node.title}</title>
+        <title>{title}</title>
+        <meta name="description" content={description} />
       </Helmet>
       <Article data={node} />
       <Comments comments={comments} setReplyingTo={setReplyingTo} />
@@ -83,6 +85,7 @@ export const query = graphql`
           content
           published_at
           slug
+          description
         }
       }
     }
