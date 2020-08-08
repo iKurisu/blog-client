@@ -7,6 +7,7 @@ import Article from "./story/article"
 import Comments from "./story/comments"
 import Reply from "./story/reply"
 import { Comment } from "./story/types"
+import { Helmet } from "react-helmet"
 
 interface Props {
   data: {
@@ -20,6 +21,7 @@ interface Props {
           category?: string
           imageAlt?: string
           slug: string
+          description: string
         }
       }>
     }
@@ -31,7 +33,7 @@ interface Props {
 
 const Story = ({ data, location }: Props) => {
   const { node } = data.allStrapiArticle.edges[0]
-  const { slug } = node
+  const { slug, title, description } = node
 
   const [replyingTo, setReplyingTo] = useState<Comment | null>(null)
   const [comments, setComments] = useState<Comment[]>([])
@@ -51,6 +53,10 @@ const Story = ({ data, location }: Props) => {
 
   return (
     <Layout location={location.pathname}>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+      </Helmet>
       <Article data={node} />
       <Comments comments={comments} setReplyingTo={setReplyingTo} />
       <Reply
@@ -79,6 +85,7 @@ export const query = graphql`
           content
           published_at
           slug
+          description
         }
       }
     }
