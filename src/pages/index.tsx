@@ -31,7 +31,7 @@ interface Props {
 const IndexPage = ({ data, location }: Props) => (
   <Layout location={location.pathname}>
     <SEO title="Home" />
-    <Heading />
+    <Heading title="Stories of my journey" />
     <Categories />
     <ArticlesWrapper>
       {data.allStrapiArticle.edges.map(({ node }) => {
