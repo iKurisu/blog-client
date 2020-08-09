@@ -1,9 +1,13 @@
 import React from "react"
 import { Title, Wrapper } from "./heading.styled"
 
-const Heading = () => (
+interface Props {
+  title: string
+}
+
+const Heading = ({ title }: Props) => (
   <Wrapper>
-    <Title>Stories of my journey</Title>
+    <Title>{title}</Title>
   </Wrapper>
 )
 
